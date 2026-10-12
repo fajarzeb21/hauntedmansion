@@ -3,7 +3,7 @@ brandName: "The Haunted Manor",
 
 eventTitle: "The Night's Secrets",
 
-hostNames: "Your Name Here",
+hostNames: "Fajar & Friends",
 
 date: "31 October 2026",
 
