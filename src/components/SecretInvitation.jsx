@@ -1,87 +1,185 @@
 
+import { useState } from "react";
 import invitationData from "../data/InvitationData";
 
+function InvitationCard({ expanded = false }) {
+  return (
+    <div
+      className={`parchment-border ${
+        expanded ? "parchment-expanded" : ""
+      }`}
+    >
+      <div className="parchment-ornament">✦ ❧ ✦</div>
+
+      <p className="parchment-eyebrow">
+        YOU ARE CORDIALLY INVITED TO
+      </p>
+
+      <h2 className="parchment-title">
+        <span>The</span>
+        <span>Haunted</span>
+        <span>Manor</span>
+      </h2>
+
+      <div className="parchment-divider">✦</div>
+
+      <p className="parchment-host">
+        {invitationData.eventTitle}
+      </p>
+
+      <p className="parchment-description">
+        {invitationData.description}
+      </p>
+
+      <p className="parchment-label">
+        HOSTED BY
+      </p>
+
+      <p className="parchment-host">
+        {invitationData.hostNames}
+      </p>
+
+      <p className="parchment-label">
+        YOU ARE SUMMONED ON
+      </p>
+
+      <p className="parchment-event">
+        {invitationData.date}
+      </p>
+
+      <div className="parchment-date">
+        <span>{invitationData.time}</span>
+        <span>{invitationData.location}</span>
+      </div>
+
+      <p className="parchment-label">
+        DRESS CODE
+      </p>
+
+      <p className="parchment-host">
+        {invitationData.dressCode}
+      </p>
+
+      <div className="parchment-bottom-ornament">
+        ✦ ❧ ✦
+      </div>
+    </div>
+  );
+}
+
 function SecretInvitation() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [showInvitation, setShowInvitation] = useState(false);
+
   return (
     <section className="secret-invitation" id="invitation">
-      {/* Background decorations */}
       <div className="invitation-glow"></div>
 
       <div className="invitation-container">
-        {/* Decorative top label */}
         <p className="invitation-eyebrow">
-          A MOST PECULIAR INVITATION
+          ✦ A MESSAGE FROM BEYOND ✦
         </p>
 
-        {/* Main invitation card */}
-        <div className="invitation-card">
-          {/* Ornamental corners */}
-          <span className="corner corner-tl">❧</span>
-          <span className="corner corner-tr">❧</span>
-          <span className="corner corner-bl">❧</span>
-          <span className="corner corner-br">❧</span>
+        <h2 className="envelope-heading">
+          An Invitation
+          <span>Awaits You</span>
+        </h2>
 
-          {/* Top decoration */}
-          <div className="invitation-ornament">
-            <span></span>
-            <b>✦</b>
-            <span></span>
+        <p className="envelope-intro">
+          {isOpen
+            ? "The seal is broken. Your invitation awaits."
+            : "A mysterious invitation lies hidden within."}
+        </p>
+
+        {/* ENVELOPE */}
+        <div
+          className={`haunted-envelope ${
+            isOpen ? "envelope-open" : ""
+          }`}
+        >
+          <div className="envelope-back"></div>
+
+          {/* Keep the small card hidden inside the envelope */}
+          <div className="envelope-card-hidden">
+            <InvitationCard />
           </div>
 
-          <p className="invitation-small-text">
-            BY THE LIGHT OF THE MIDNIGHT MOON
-          </p>
-
-          {/* Main heading */}
-          <h2 className="invitation-title">
-            You Are
-            <span>Summoned</span>
-          </h2>
-
-          {/* Host name */}
-          <p className="invitation-host">
-            Hosted by {invitationData.hostNames}
-          </p>
-
-          {/* Invitation description */}
-          <p className="invitation-description">
-            {invitationData.description}
-          </p>
-
-          {/* Decorative divider */}
-          <div className="invitation-divider">
-            <span>✧</span>
-            <span>✦</span>
-            <span>✧</span>
+          <div className="envelope-front">
+            <div className="envelope-left-fold"></div>
+            <div className="envelope-right-fold"></div>
+            <div className="envelope-bottom-fold"></div>
           </div>
 
-          <p className="masquerade-label">
-            YOU ARE CORDIALLY INVITED TO
-          </p>
+          <div className="envelope-flap"></div>
 
-          {/* Event title */}
-          <h3 className="masquerade-title">
-            {invitationData.eventTitle}
-          </h3>
-
-          {/* Event date and time */}
-          <p className="invitation-bottom-text">
-            {invitationData.date} · {invitationData.time}
-          </p>
-
-          {/* Wax seal */}
-          <div className="wax-seal">
-            <span>H</span>
-          </div>
+          {!isOpen && (
+            <button
+              type="button"
+              className="skull-wax-seal"
+              onClick={() => setIsOpen(true)}
+              aria-label="Break the seal and open the envelope"
+            >
+              <span className="seal-skull">✦</span>
+            </button>
+          )}
         </div>
 
-        {/* Invitation closing text */}
-        <p className="invitation-closing">
-          {invitationData.tagline}
+        {/* SHOW BUTTON AFTER OPENING THE ENVELOPE */}
+        {isOpen && (
+          <button
+            type="button"
+            className="envelope-action"
+            onClick={() => setShowInvitation(true)}
+          >
+            OPEN INVITATION <span>⟶</span>
+          </button>
+        )}
+
+        <p className="envelope-hint">
+          {isOpen
+            ? "Your mysterious invitation is waiting for you."
+            : "Break the wax seal to discover what awaits."}
         </p>
 
-        <div className="invitation-star">✦</div>
+        <p className="invitation-closing">
+          Some nights are simply too magical to miss...
+        </p>
       </div>
+
+      {/* SEPARATE FULL-SCREEN INVITATION */}
+      {showInvitation && (
+        <div className="invitation-modal">
+          <header className="full-invitation-header">
+            <span className="full-invitation-brand">
+              ✦ THE HAUNTED MANOR ✦
+            </span>
+
+            <button
+  type="button"
+  className="invitation-modal-close"
+  onClick={() => {
+    setShowInvitation(false);
+    setIsOpen(false);
+  }}
+  aria-label="Close invitation and return to website"
+>
+  CLOSE ✕
+</button>
+          </header>
+
+          <div className="full-invitation-body">
+            <p className="full-invitation-eyebrow">
+              ✦ YOUR PRESENCE IS REQUESTED ✦
+            </p>
+
+            <InvitationCard expanded />
+
+            <p className="full-invitation-footer">
+              {invitationData.tagline}
+            </p>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
