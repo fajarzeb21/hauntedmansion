@@ -32,11 +32,18 @@ function SecretInvitation() {
             BY THE LIGHT OF THE MIDNIGHT MOON
           </p>
 
+          {/* Main heading */}
           <h2 className="invitation-title">
             You Are
             <span>Summoned</span>
           </h2>
 
+          {/* Host name */}
+          <p className="invitation-host">
+            Hosted by {invitationData.hostNames}
+          </p>
+
+          {/* Invitation description */}
           <p className="invitation-description">
             {invitationData.description}
           </p>
@@ -52,10 +59,12 @@ function SecretInvitation() {
             YOU ARE CORDIALLY INVITED TO
           </p>
 
+          {/* Event title */}
           <h3 className="masquerade-title">
             {invitationData.eventTitle}
           </h3>
 
+          {/* Event date and time */}
           <p className="invitation-bottom-text">
             {invitationData.date} · {invitationData.time}
           </p>
