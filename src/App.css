@@ -1,0 +1,1568 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap');
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+:root {
+  --midnight: #0b080e;
+  --plum: #241326;
+  --burgundy: #501e32;
+  --gold: #c6a46a;
+  --ivory: #f4e9da;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--midnight);
+  color: var(--ivory);
+  font-family: "DM Sans", sans-serif;
+}
+
+button {
+  font: inherit;
+}
+
+main {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* =========================
+   HAUNTED ENTRANCE
+========================= */
+
+.haunted-entrance {
+  position: relative;
+
+  min-height: 100vh;
+  min-height: 100svh;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  background-color: var(--midnight);
+
+  /* YOUR STOCKCAKE HAUNTED HOUSE IMAGE */
+
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(11, 8, 14, 0.10) 0%,
+      rgba(11, 8, 14, 0.30) 35%,
+      rgba(11, 8, 14, 0.72) 70%,
+      rgba(11, 8, 14, 0.96) 100%
+    ),
+    url("https://images.stockcake.com/public/8/5/a/85a1aa95-d1d7-40a7-8590-5ec0f5de56fa_large/haunted-house-nightmare-stockcake.jpg");
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* Atmospheric overlay */
+
+.entrance-overlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 10%,
+      rgba(11, 8, 14, 0.12) 50%,
+      rgba(11, 8, 14, 0.55) 100%
+    );
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.entrance-content {
+  position: relative;
+  z-index: 3;
+
+  width: min(90%, 800px);
+
+  text-align: center;
+
+  padding: 60px 20px;
+
+  animation: contentAppear 1.5s ease both;
+}
+
+@keyframes contentAppear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Small top heading */
+
+.entrance-eyebrow {
+  color: var(--gold);
+
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 5px;
+
+  margin-bottom: 28px;
+
+  text-shadow: 0 2px 12px #000;
+}
+
+/* Main title */
+
+.entrance-title {
+  display: flex;
+  flex-direction: column;
+
+  font-family: "Cinzel", serif;
+
+  font-size: clamp(42px, 8vw, 88px);
+
+  font-weight: 500;
+
+  line-height: 1.12;
+  letter-spacing: 7px;
+
+  color: var(--ivory);
+
+  text-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.9),
+    0 0 35px rgba(0, 0, 0, 0.8);
+}
+
+.entrance-title span {
+  color: var(--gold);
+
+  font-size: 0.9em;
+
+  letter-spacing: 9px;
+
+  text-shadow:
+    0 0 25px rgba(198, 164, 106, 0.2),
+    0 4px 15px #000;
+}
+
+/* Gold divider */
+
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 17px;
+
+  margin: 26px auto 18px;
+
+  color: var(--gold);
+}
+
+.gold-divider::before,
+.gold-divider::after {
+  content: "";
+
+  width: 65px;
+  height: 1px;
+
+  background: var(--gold);
+
+  opacity: 0.8;
+}
+
+.gold-divider span {
+  font-size: 17px;
+}
+
+/* Subtitle */
+
+.entrance-subtitle {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(23px, 3vw, 31px);
+
+  font-style: italic;
+
+  color: var(--ivory);
+
+  text-shadow: 0 2px 12px #000;
+}
+
+/* Description */
+
+.entrance-description {
+  max-width: 420px;
+
+  margin: 19px auto 30px;
+
+  font-size: 13px;
+  line-height: 1.9;
+
+  color: rgba(244, 233, 218, 0.88);
+
+  text-shadow: 0 2px 10px #000;
+}
+
+/* =========================
+   ENTER BUTTON
+========================= */
+
+.enter-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 24px;
+
+  min-width: 250px;
+
+  padding: 17px 24px;
+
+  color: var(--gold);
+
+  background: rgba(17, 10, 20, 0.72);
+
+  border: 1px solid var(--gold);
+
+  font-family: "Cinzel", serif;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+.enter-button:hover:not(:disabled) {
+  color: var(--midnight);
+
+  background: var(--gold);
+
+  box-shadow:
+    0 0 20px rgba(198, 164, 106, 0.25),
+    0 0 45px rgba(198, 164, 106, 0.15);
+
+  transform: translateY(-3px);
+}
+
+.enter-button:disabled {
+  cursor: default;
+}
+
+.button-arrow {
+  font-size: 18px;
+
+  transition: transform 0.3s ease;
+}
+
+.enter-button:hover .button-arrow {
+  transform: translateX(5px);
+}
+
+/* Date at bottom */
+
+.entrance-note {
+  margin-top: 30px;
+
+  font-size: 9px;
+  letter-spacing: 4px;
+
+  color: rgba(244, 233, 218, 0.8);
+
+  text-shadow: 0 2px 10px #000;
+}
+
+/* =========================
+   FLYING BATS
+========================= */
+
+.bat {
+  position: absolute;
+
+  z-index: 2;
+
+  font-size: 21px;
+
+  opacity: 0.8;
+
+  pointer-events: none;
+}
+
+.bat-one {
+  top: 24%;
+  left: -50px;
+
+  animation: flyBatOne 16s linear infinite;
+}
+
+.bat-two {
+  top: 37%;
+  left: -50px;
+
+  font-size: 16px;
+
+  animation: flyBatTwo 22s linear infinite;
+
+  animation-delay: 4s;
+}
+
+@keyframes flyBatOne {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(55vw, -35px);
+  }
+
+  100% {
+    transform: translate(115vw, 15px);
+  }
+}
+
+@keyframes flyBatTwo {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(50vw, 25px);
+  }
+
+  100% {
+    transform: translate(115vw, -20px);
+  }
+}
+
+/* =========================
+   OPENING GOTHIC DOORS
+========================= */
+
+.manor-doors {
+  position: absolute;
+  inset: 0;
+
+  z-index: 5;
+
+  display: flex;
+
+  perspective: 1400px;
+
+  pointer-events: none;
+
+  visibility: hidden;
+}
+
+.door {
+  position: relative;
+
+  width: 50%;
+  height: 100%;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 35px,
+      rgba(198, 164, 106, 0.08) 36px,
+      transparent 39px
+    ),
+    linear-gradient(
+      90deg,
+      #100911,
+      #28142b 50%,
+      #120b16
+    );
+
+  border: 3px solid #765630;
+
+  box-shadow:
+    inset 0 0 45px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(0, 0, 0, 0.8);
+
+  transition:
+    transform 1.6s cubic-bezier(0.7, 0, 0.2, 1);
+
+  backface-visibility: hidden;
+}
+
+.door-left {
+  transform-origin: left center;
+
+  border-right: 2px solid var(--gold);
+}
+
+.door-right {
+  transform-origin: right center;
+
+  border-left: 2px solid var(--gold);
+}
+
+.door-inner {
+  position: absolute;
+  inset: 20px;
+
+  border: 1px solid rgba(198, 164, 106, 0.55);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.door-symbol {
+  color: var(--gold);
+
+  font-size: clamp(40px, 7vw, 90px);
+
+  opacity: 0.7;
+}
+
+.door-handle {
+  position: absolute;
+
+  top: 52%;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+
+  box-shadow: 0 0 12px rgba(198, 164, 106, 0.7);
+}
+
+.door-left .door-handle {
+  right: 10px;
+}
+
+.door-right .door-handle {
+  left: 10px;
+}
+
+/* Open doors */
+
+.manor-doors.open {
+  visibility: visible;
+}
+
+.manor-doors.open .door-left {
+  transform: rotateY(-105deg);
+}
+
+.manor-doors.open .door-right {
+  transform: rotateY(105deg);
+}
+
+/* Entrance text disappears */
+
+.fade-out {
+  animation: fadeOut 0.6s ease forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+/* =========================
+   SECRET INVITATION PREVIEW
+========================= */
+
+.secret-section {
+  position: relative;
+
+  min-height: 80vh;
+
+  padding: 100px 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(80, 30, 50, 0.28),
+      transparent 70%
+    ),
+    var(--midnight);
+
+  animation: contentAppear 1.3s ease both;
+}
+
+.section-eyebrow {
+  color: var(--gold);
+
+  font-size: 10px;
+  letter-spacing: 4px;
+}
+
+.secret-section h2 {
+  margin-top: 25px;
+
+  font-family: "Cinzel", serif;
+
+  font-size: clamp(28px, 5vw, 48px);
+
+  font-weight: 500;
+
+  color: var(--gold);
+}
+
+.secret-message {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(21px, 3vw, 28px);
+
+  line-height: 1.8;
+
+  color: var(--ivory);
+}
+
+.secret-caption {
+  margin-top: 35px;
+
+  color: var(--gold);
+
+  font-size: 10px;
+
+  letter-spacing: 4px;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 600px) {
+  .haunted-entrance {
+    background-position: center center;
+  }
+
+  .entrance-content {
+    width: 94%;
+
+    padding: 45px 10px;
+  }
+
+  .entrance-eyebrow {
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+  }
+
+  .entrance-title {
+    font-size: clamp(36px, 10vw, 54px);
+
+    letter-spacing: 3px;
+  }
+
+  .entrance-title span {
+    letter-spacing: 4px;
+  }
+
+  .entrance-subtitle {
+    font-size: 24px;
+  }
+
+  .entrance-description {
+    max-width: 300px;
+
+    font-size: 12px;
+  }
+
+  .enter-button {
+    min-width: 225px;
+
+    padding: 15px 18px;
+
+    font-size: 10px;
+  }
+
+  .entrance-note {
+    font-size: 8px;
+
+    letter-spacing: 3px;
+  }
+
+  .secret-section {
+    padding: 75px 20px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    scroll-behavior: auto !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}
+/* =====================================
+   SECRET INVITATION SECTION
+===================================== */
+
+.secret-invitation {
+  position: relative;
+
+  min-height: 100vh;
+  min-height: 100svh;
+
+  padding: 100px 20px 80px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 45%,
+      rgba(80, 30, 50, 0.22),
+      transparent 65%
+    ),
+    #0b080e;
+}
+
+/* Ambient background glow */
+
+.invitation-glow {
+  position: absolute;
+
+  width: 550px;
+  height: 550px;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: rgba(112, 43, 69, 0.09);
+
+  filter: blur(100px);
+
+  pointer-events: none;
+}
+
+/* Main content container */
+
+.invitation-container {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 720px;
+
+  text-align: center;
+
+  animation: invitationReveal 1.5s ease both;
+}
+
+@keyframes invitationReveal {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Small heading */
+
+.invitation-eyebrow {
+  margin-bottom: 30px;
+
+  color: #c6a46a;
+
+  font-size: 10px;
+
+  letter-spacing: 5px;
+
+  line-height: 1.8;
+}
+
+/* =====================================
+   THE INVITATION CARD
+===================================== */
+
+.invitation-card {
+  position: relative;
+
+  padding: 75px 55px 65px;
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(110, 52, 70, 0.28),
+      transparent 60%
+    ),
+    linear-gradient(
+      145deg,
+      #25151f,
+      #160e16 55%,
+      #20101b
+    );
+
+  border: 1px solid rgba(198, 164, 106, 0.75);
+
+  outline: 1px solid rgba(198, 164, 106, 0.25);
+
+  outline-offset: -10px;
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.45),
+    0 0 50px rgba(80, 30, 50, 0.12);
+}
+
+/* Decorative corners */
+
+.corner {
+  position: absolute;
+
+  color: #c6a46a;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 48px;
+
+  line-height: 1;
+
+  opacity: 0.8;
+}
+
+.corner-tl {
+  top: 15px;
+  left: 18px;
+}
+
+.corner-tr {
+  top: 15px;
+  right: 18px;
+
+  transform: scaleX(-1);
+}
+
+.corner-bl {
+  bottom: 15px;
+  left: 18px;
+
+  transform: scaleY(-1);
+}
+
+.corner-br {
+  bottom: 15px;
+  right: 18px;
+
+  transform: scale(-1);
+}
+
+/* Top ornament */
+
+.invitation-ornament {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+
+  margin-bottom: 30px;
+
+  color: #c6a46a;
+}
+
+.invitation-ornament span {
+  width: 65px;
+  height: 1px;
+
+  background: #c6a46a;
+
+  opacity: 0.65;
+}
+
+.invitation-ornament b {
+  font-size: 20px;
+
+  font-weight: 400;
+}
+
+/* Small uppercase text */
+
+.invitation-small-text {
+  color: #c6a46a;
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+
+  line-height: 1.8;
+
+  margin-bottom: 28px;
+}
+
+/* Main invitation heading */
+
+.invitation-title {
+  display: flex;
+
+  flex-direction: column;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(40px, 7vw, 64px);
+
+  line-height: 1.05;
+
+  font-weight: 400;
+
+  color: #f4e9da;
+}
+
+.invitation-title span {
+  color: #c6a46a;
+
+  font-style: italic;
+
+  font-size: 1.12em;
+}
+
+/* Invitation description */
+
+.invitation-description {
+  max-width: 430px;
+
+  margin: 28px auto;
+
+  color: rgba(244, 233, 218, 0.78);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 19px;
+
+  line-height: 1.8;
+}
+
+/* Decorative divider */
+
+.invitation-divider {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+
+  margin: 30px 0;
+
+  color: #c6a46a;
+}
+
+.invitation-divider span {
+  font-size: 16px;
+}
+
+.invitation-divider span:nth-child(2) {
+  font-size: 24px;
+}
+
+/* Masquerade label */
+
+.masquerade-label {
+  margin-bottom: 18px;
+
+  color: rgba(244, 233, 218, 0.7);
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+
+  line-height: 1.8;
+}
+
+/* Event title */
+
+.masquerade-title {
+  display: flex;
+
+  flex-direction: column;
+
+  font-family: "Cinzel", serif;
+
+  font-size: clamp(24px, 5vw, 38px);
+
+  font-weight: 400;
+
+  letter-spacing: 1px;
+
+  line-height: 1.5;
+
+  color: #f4e9da;
+}
+
+.masquerade-title span {
+  color: #c6a46a;
+}
+
+/* Bottom text */
+
+.invitation-bottom-text {
+  margin-top: 30px;
+
+  color: #c6a46a;
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+
+  line-height: 1.8;
+}
+
+/* =====================================
+   WAX SEAL
+===================================== */
+
+.wax-seal {
+  position: absolute;
+
+  bottom: -32px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 65px;
+  height: 65px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #914354,
+      #642236 65%,
+      #401421
+    );
+
+  border: 2px solid rgba(198, 164, 106, 0.85);
+
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.5),
+    inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.wax-seal span {
+  color: #e1bd82;
+
+  font-family: "Cinzel", serif;
+
+  font-size: 25px;
+
+  font-weight: 600;
+}
+
+/* Closing message */
+
+.invitation-closing {
+  margin-top: 65px;
+
+  color: #d7c4ae;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-style: italic;
+
+  font-size: 22px;
+
+  line-height: 1.7;
+}
+
+.invitation-star {
+  margin-top: 22px;
+
+  color: #c6a46a;
+
+  font-size: 18px;
+
+  animation: starGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes starGlow {
+  from {
+    opacity: 0.55;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =====================================
+   MOBILE RESPONSIVENESS
+===================================== */
+
+@media (max-width: 600px) {
+  .secret-invitation {
+    padding: 80px 18px 65px;
+  }
+
+  .invitation-eyebrow {
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+  }
+
+  .invitation-card {
+    padding: 65px 25px 55px;
+
+    outline-offset: -7px;
+  }
+
+  .corner {
+    font-size: 35px;
+  }
+
+  .corner-tl {
+    top: 12px;
+    left: 12px;
+  }
+
+  .corner-tr {
+    top: 12px;
+    right: 12px;
+  }
+
+  .corner-bl {
+    bottom: 12px;
+    left: 12px;
+  }
+
+  .corner-br {
+    bottom: 12px;
+    right: 12px;
+  }
+
+  .invitation-small-text {
+    font-size: 8px;
+
+    letter-spacing: 2px;
+  }
+
+  .invitation-description {
+    font-size: 17px;
+  }
+
+  .masquerade-label {
+    font-size: 8px;
+
+    letter-spacing: 2px;
+  }
+
+  .invitation-bottom-text {
+    font-size: 8px;
+
+    letter-spacing: 2px;
+  }
+
+  .invitation-closing {
+    font-size: 19px;
+  }
+
+  .wax-seal {
+    width: 58px;
+    height: 58px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .invitation-container,
+  .invitation-star {
+    animation: none;
+  }
+}
+.night-secrets {
+position: relative;
+overflow: hidden;
+padding: 110px 7%;
+color: #eee4d8;
+text-align: center;
+background:
+radial-gradient(
+ellipse at 50% 0%,
+rgba(91, 35, 57, 0.24),
+transparent 60%
+),
+#100d12;
+}
+
+.secrets-heading {
+max-width: 650px;
+margin: 0 auto 65px;
+}
+
+.secrets-eyebrow {
+color: #c7a46a;
+font-size: 11px;
+letter-spacing: 4px;
+}
+
+.secrets-heading h2 {
+margin: 22px 0;
+color: #e4c795;
+font-family: Georgia, "Times New Roman", serif;
+font-size: clamp(38px, 5vw, 60px);
+font-weight: 400;
+}
+
+.secrets-heading > p {
+color: #b9adb5;
+font-size: 15px;
+line-height: 1.9;
+}
+
+.secrets-cards {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 24px;
+max-width: 1100px;
+margin: 0 auto;
+}
+
+.secret-detail-card {
+position: relative;
+min-width: 0;
+padding: 42px 25px 38px;
+border: 1px solid rgba(199, 164, 106, 0.28);
+background: linear-gradient(
+145deg,
+rgba(255, 255, 255, 0.045),
+rgba(92, 35, 57, 0.06)
+);
+transition:
+transform 0.35s ease,
+border-color 0.35s ease,
+background 0.35s ease;
+}
+
+.secret-detail-card:hover {
+transform: translateY(-8px);
+border-color: #c7a46a;
+background: rgba(92, 35, 57, 0.14);
+}
+
+.secret-symbol {
+display: block;
+margin-bottom: 18px;
+color: #d4b67e;
+font-size: 37px;
+}
+
+.secret-number {
+position: absolute;
+top: 20px;
+right: 20px;
+color: rgba(199, 164, 106, 0.55);
+font-size: 11px;
+letter-spacing: 2px;
+}
+
+.secret-detail-card h3 {
+margin: 0 0 22px;
+color: #d9c6aa;
+font-family: Georgia, "Times New Roman", serif;
+font-size: 25px;
+font-weight: 400;
+}
+
+.secret-value {
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 52px;
+margin: 0;
+color: #f4e9dc;
+font-size: 16px;
+line-height: 1.7;
+overflow-wrap: anywhere;
+}
+
+.secret-line {
+display: block;
+width: 45px;
+height: 1px;
+margin: 24px auto;
+background: #a77d49;
+}
+
+.secret-caption {
+margin: 0;
+color: #a99aa4;
+font-size: 12px;
+font-style: italic;
+letter-spacing: 0.5px;
+line-height: 1.8;
+}
+
+.dress-code {
+max-width: 600px;
+margin: 75px auto 0;
+padding: 35px 20px;
+border-top: 1px solid rgba(199, 164, 106, 0.3);
+border-bottom: 1px solid rgba(199, 164, 106, 0.3);
+}
+
+.dress-code-icon {
+color: #d4b67e;
+font-size: 25px;
+}
+
+.dress-code-label {
+margin: 15px 0;
+color: #bda06c;
+font-size: 10px;
+letter-spacing: 4px;
+}
+
+.dress-code h3 {
+margin: 15px 0;
+color: #e6d3b7;
+font-family: Georgia, "Times New Roman", serif;
+font-size: clamp(25px, 4vw, 36px);
+font-weight: 400;
+letter-spacing: 4px;
+}
+
+.dress-code > p:last-child {
+color: #b9adb5;
+font-size: 13px;
+line-height: 1.8;
+}
+
+@media (max-width: 850px) {
+.secrets-cards {
+grid-template-columns: 1fr;
+max-width: 480px;
+}
+
+.secret-detail-card {
+padding: 35px 25px;
+}
+}
+
+@media (max-width: 600px) {
+.night-secrets {
+padding: 80px 6%;
+}
+
+.secrets-heading {
+margin-bottom: 42px;
+}
+
+.secrets-eyebrow {
+font-size: 9px;
+letter-spacing: 2.5px;
+}
+
+.dress-code {
+margin-top: 55px;
+}
+
+.dress-code h3 {
+letter-spacing: 2px;
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+.secret-detail-card {
+transition: none;
+}
+
+.secret-detail-card:hover {
+transform: none;
+}
+}
+/* ===== STEP 8: HAUNTED COUNTDOWN ===== */
+
+.haunted-countdown {
+padding: 100px 7%;
+overflow: hidden;
+text-align: center;
+color: #eee4d8;
+background:
+radial-gradient(
+ellipse at 50% 50%,
+rgba(92, 35, 57, 0.2),
+transparent 65%
+),
+#0b0910;
+}
+
+.countdown-eyebrow {
+color: #c7a46a;
+font-size: 11px;
+letter-spacing: 4px;
+}
+
+.haunted-countdown h2 {
+margin: 22px 0;
+color: #e4c795;
+font-family: Georgia, "Times New Roman", serif;
+font-size: clamp(35px, 5vw, 58px);
+font-weight: 400;
+}
+
+.countdown-description {
+max-width: 550px;
+margin: 0 auto 50px;
+color: #b9adb5;
+font-size: 15px;
+line-height: 1.9;
+}
+
+.countdown-grid {
+display: grid;
+grid-template-columns: repeat(4, minmax(0, 1fr));
+gap: 18px;
+max-width: 780px;
+margin: 0 auto;
+}
+
+.countdown-unit {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+min-height: 145px;
+padding: 20px 10px;
+border: 1px solid rgba(199, 164, 106, 0.35);
+background: linear-gradient(
+145deg,
+rgba(255, 255, 255, 0.04),
+rgba(92, 35, 57, 0.12)
+);
+}
+
+.countdown-number {
+color: #e8c994;
+font-family: Georgia, "Times New Roman", serif;
+font-size: clamp(35px, 5vw, 55px);
+font-variant-numeric: tabular-nums;
+}
+
+.countdown-label {
+margin-top: 15px;
+color: #bda06c;
+font-size: 10px;
+letter-spacing: 3px;
+}
+
+.countdown-divider {
+margin-top: 45px;
+color: #c7a46a;
+font-size: 22px;
+letter-spacing: 8px;
+}
+
+.countdown-footer {
+margin-top: 18px;
+color: #b9adb5;
+font-family: Georgia, "Times New Roman", serif;
+font-size: 17px;
+font-style: italic;
+}
+
+@media (max-width: 600px) {
+.haunted-countdown {
+padding: 75px 6%;
+}
+
+.countdown-eyebrow {
+font-size: 9px;
+letter-spacing: 2px;
+}
+
+.countdown-grid {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 12px;
+}
+
+.countdown-unit {
+min-height: 120px;
+}
+}
+/* ===== STEP 9: THE HAUNTED FOOTER ===== */
+
+.haunted-footer {
+padding: 65px 7% 30px;
+overflow: hidden;
+text-align: center;
+color: #c5b7bd;
+background: #08070b;
+border-top: 1px solid rgba(199, 164, 106, 0.25);
+}
+
+.footer-decoration {
+margin-bottom: 25px;
+color: #c7a46a;
+font-size: 17px;
+letter-spacing: 5px;
+}
+
+.footer-brand {
+display: inline-block;
+color: #e4c795;
+font-family: Georgia, "Times New Roman", serif;
+font-size: clamp(22px, 4vw, 34px);
+letter-spacing: 4px;
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+.footer-brand:hover {
+color: #fff0d0;
+}
+
+.footer-tagline {
+margin: 17px 0 30px;
+color: #a99aa4;
+font-family: Georgia, "Times New Roman", serif;
+font-size: 15px;
+font-style: italic;
+line-height: 1.8;
+}
+
+.footer-navigation {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 30px;
+margin: 30px 0;
+}
+
+.footer-navigation a {
+color: #c5b7bd;
+font-size: 12px;
+letter-spacing: 1px;
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+.footer-navigation a:hover {
+color: #d8b778;
+}
+
+.footer-divider {
+width: 100%;
+max-width: 500px;
+height: 1px;
+margin: 35px auto 25px;
+background: linear-gradient(
+to right,
+transparent,
+rgba(199, 164, 106, 0.45),
+transparent
+);
+}
+
+.footer-closing {
+margin-bottom: 30px;
+color: #d0b994;
+font-family: Georgia, "Times New Roman", serif;
+font-size: 16px;
+font-style: italic;
+line-height: 1.8;
+}
+
+.footer-copyright {
+margin: 0;
+color: #756873;
+font-size: 10px;
+letter-spacing: 1px;
+line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+.haunted-footer {
+padding: 50px 6% 25px;
+}
+
+.footer-brand {
+font-size: 23px;
+letter-spacing: 2px;
+}
+
+.footer-navigation {
+gap: 18px;
+}
+
+.footer-navigation a {
+font-size: 11px;
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+.footer-brand,
+.footer-navigation a {
+transition: none;
+}
+}
